@@ -1,13 +1,15 @@
 import React, { useState  } from "react";
 import Logo from "../logo.svg";
 import "../Styles/Navbar.css";
-const Navbar = ({setData}) => {
+const Navbar = ({setData ,setSearchTrue}) => {
 
   const [search, setSearch] = useState("");
+ 
 
   const sumbitHandler = (e) => {
     e.preventDefault();
     setData(search);
+    setSearchTrue(true);
     setSearch(" ");
   };
   return (

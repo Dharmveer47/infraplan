@@ -2,13 +2,9 @@ import React, { useEffect } from "react";
 import Logo from "../logo.svg";
 import UserCard from "./UserCard";
 import { capitalizeFirstLetter, searchResult } from "./funcations";
-import '../Styles/App.css'
+import "../Styles/App.css";
 
-
-const Landing = ({ data = [] }) => {
-
-
-
+const Landing = ({ data = [], searchTrue }) => {
   const [apiData, setApiData] = React.useState([]);
   let apiUrl = "https://randomuser.me/api/?results=15";
 
@@ -22,27 +18,27 @@ const Landing = ({ data = [] }) => {
     getData(apiUrl);
   }, [apiUrl]);
 
-
   if (apiData.length === 0) {
     return (
       <div className="Loading">
         <img src={Logo} alt="logo" />
-        <h4 >Loading...</h4>
+        <h4>Loading...</h4>
       </div>
     );
   }
   const [sname = {}, fname = {}, lname = {}] = capitalizeFirstLetter(data);
-  searchResult(apiData, sname, fname, lname);
-
+  const search = searchResult(apiData, sname, fname, lname);
+  // console.log(search);
   return (
     <div>
       <UserCard
-        searchResult={searchResult(apiData, sname, fname, lname)}
+        searchTrue={searchTrue}
+        searchResult={search}
         apiData={apiData}
+        setApiData={setApiData}
       />
     </div>
   );
 };
-
 
 export default Landing;

@@ -10,10 +10,12 @@ export const searchResult = (result, sn, fn, ln) => {
       d.name.last === last
     ) {
       return d;
-    }
-    return null;
+    }else return last;
+    
   });
 };
+
+
 
 export function capitalizeFirstLetter(data) {
   if (data.length === 0 || data === undefined) {

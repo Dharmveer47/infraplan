@@ -7,10 +7,11 @@ import "./Styles/App.css";
 
 function App() {
   const [data, setData] = useState(" ");
+  const [searchTrue, setSearchTrue] = useState(false);
   return (
     <div className="App">
-      <Navbar data={data} setData={setData} />
-      <Landing data={data} />
+      <Navbar data={data} setData={setData} setSearchTrue={setSearchTrue}/>
+      <Landing data={data} searchTrue={searchTrue} />
     </div>
   );
 }

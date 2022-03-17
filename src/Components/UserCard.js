@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/UserCard.css";
-const UserCard = ({ searchResult=[], apiData }) => {
+const UserCard = ({ searchResult = [], apiData, searchTrue }) => {
+  console.log(searchTrue);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     setData(apiData);
-    if(searchResult.length > 0){
+    if (searchTrue) {
       setData(searchResult);
     }
-  }, [apiData, searchResult]);
-  
+  }, [apiData, searchResult, searchTrue]);
+
+  if (data.length === 0) {
+    return <h4 className="notFound">Results Not found</h4>;
+  }
+
   return (
     <div className="mainCard">
       {data.map((d, i) => {
