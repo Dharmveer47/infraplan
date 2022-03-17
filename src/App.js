@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Landing from "./Components/Landing";
+import Navbar from "./Components/Navbar";
+import "./Styles/App.css";
+// I can also use Context api and useReducer to manage state //
+//  but in this case it's small project, that's why i'm not use //
 
 function App() {
+  const [data, setData] = useState(" ");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar data={data} setData={setData} />
+      <Landing data={data} />
     </div>
   );
 }
