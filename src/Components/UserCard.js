@@ -12,7 +12,7 @@ const UserCard = ({ searchResult = [], apiData, searchTrue }) => {
   }, [apiData, searchResult, searchTrue]);
 
   if (data.length === 0) {
-    return <h4 className="notFound">Results Not found</h4>;
+    return <h4 className="notFound">No Data found</h4>;
   }
 
   return (
